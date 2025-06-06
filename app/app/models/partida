@@ -1,0 +1,9 @@
+from sqlalchemy import Column, Integer, DateTime, ForeignKey
+from app.database.connection import Base
+
+class Partida(Base):
+    __tablename__ = "partidas"
+    id = Column(Integer, primary_key=True, index=True)
+    data = Column(DateTime)
+    time_casa_id = Column(Integer, ForeignKey("times.id"))
+    time_fora_id = Column(Integer, ForeignKey("times.id"))
