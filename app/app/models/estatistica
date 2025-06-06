@@ -1,0 +1,11 @@
+from sqlalchemy import Column, Integer, ForeignKey
+from app.database.connection import Base
+
+class Estatistica(Base):
+    __tablename__ = "estatisticas"
+    id = Column(Integer, primary_key=True, index=True)
+    jogador_id = Column(Integer, ForeignKey("jogadores.id"))
+    partida_id = Column(Integer, ForeignKey("partidas.id"))
+    pontos = Column(Integer)
+    assistencias = Column(Integer)
+    rebotes = Column(Integer)
